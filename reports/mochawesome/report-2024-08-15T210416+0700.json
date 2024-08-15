@@ -1,0 +1,777 @@
+{
+  "stats": {
+    "suites": 7,
+    "tests": 25,
+    "passes": 1,
+    "pending": 0,
+    "failures": 24,
+    "start": "2024-08-15T14:04:11.286Z",
+    "end": "2024-08-15T14:04:15.888Z",
+    "duration": 4602,
+    "testsRegistered": 25,
+    "passPercent": 4,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f212132b-6096-4fbd-b1a6-9b4c93b4049a",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1e841443-d1d1-4b50-86b0-066e11f0c3c4",
+          "title": "Add Object",
+          "fullFile": "D:\\PARI\\testing-automation-api-object\\api\\test\\menu-object-test\\add-object-test.js",
+          "file": "\\api\\test\\menu-object-test\\add-object-test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "@post As a User, I want to be able to Add Object - Testing with Add Data Object",
+              "fullTitle": "Add Object @post As a User, I want to be able to Add Object - Testing with Add Data Object",
+              "timedOut": false,
+              "duration": 466,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const validDataCases = [\n    {\n        \"name\": \"Apple MacBook Pro 16\",\n        \"data\": {\n           \"year\": 2019,\n           \"price\": 1849.99,\n           \"CPU model\": \"Intel Core i9\",\n           \"Hard disk size\": \"1 TB\"\n        }\n     }\n];\nfor (const data of validDataCases){\nconst response = await page.postAddObject(data);\nconsole.log(`Testing with data:`, data);\nconsole.log(response.body);\nassert(response.status).to.equal(200);\n}",
+              "err": {
+                "message": "AssertionError: expected 405 to equal 200",
+                "estack": "AssertionError: expected 405 to equal 200\n    at Context.<anonymous> (api\\test\\menu-object-test\\add-object-test.js:33:32)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- 405\n+ 200\n"
+              },
+              "uuid": "3dfcaba6-2ac8-4c18-a100-213499bee1d7",
+              "parentUUID": "1e841443-d1d1-4b50-86b0-066e11f0c3c4",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "@post As a User, I should get error 400 when Bad Request Response - Testing with Invalid Data Object",
+              "fullTitle": "Add Object @post As a User, I should get error 400 when Bad Request Response - Testing with Invalid Data Object",
+              "timedOut": false,
+              "duration": 226,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const validDataCases = [\n    {\n        \"name\": \"1234567\",\n        \"data\": {\n           \"year\": true,\n           \"price\": false,\n           \"CPU model\": \"!@#$%^\",\n           \"Hard disk size\": \"!@#$\",\n        }\n     }\n];\nfor (const data of validDataCases){\nconst response = await page.postAddObject(data);\nconsole.log(`Testing with data:`, data);\nconsole.log(response.body);\nassert(response.status).to.equal(400);\n}",
+              "err": {
+                "message": "AssertionError: expected 405 to equal 400",
+                "estack": "AssertionError: expected 405 to equal 400\n    at Context.<anonymous> (api\\test\\menu-object-test\\add-object-test.js:53:36)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- 405\n+ 400\n"
+              },
+              "uuid": "774016fb-7964-4550-9d32-d298fc76ed7b",
+              "parentUUID": "1e841443-d1d1-4b50-86b0-066e11f0c3c4",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "@get As a User, I should get error 408 when the request times out - Testing Request Timeout",
+              "fullTitle": "Add Object @get As a User, I should get error 408 when the request times out - Testing Request Timeout",
+              "timedOut": false,
+              "duration": 218,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const response = await page.postAddRequestTimeout({\n    timeout: 100 // Simulate a request timeout\n});\nconsole.log(response.body);\nassert(response.status).to.equal(408);",
+              "err": {
+                "message": "AssertionError: expected 405 to equal 408",
+                "estack": "AssertionError: expected 405 to equal 408\n    at Context.<anonymous> (api\\test\\menu-object-test\\add-object-test.js:62:36)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- 405\n+ 408\n"
+              },
+              "uuid": "2e81e43a-9541-4978-90dd-f588d3f376d0",
+              "parentUUID": "1e841443-d1d1-4b50-86b0-066e11f0c3c4",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "3dfcaba6-2ac8-4c18-a100-213499bee1d7",
+            "774016fb-7964-4550-9d32-d298fc76ed7b",
+            "2e81e43a-9541-4978-90dd-f588d3f376d0"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 910,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 180000
+        },
+        {
+          "uuid": "a4c70556-a66f-4e82-9663-38b4640979a1",
+          "title": "Delete Object",
+          "fullFile": "D:\\PARI\\testing-automation-api-object\\api\\test\\menu-object-test\\delete-object-test.js",
+          "file": "\\api\\test\\menu-object-test\\delete-object-test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "@get undefined - Testing With True endpoint",
+              "fullTitle": "Delete Object @get undefined - Testing With True endpoint",
+              "timedOut": false,
+              "duration": 196,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const response = await page.deleteObject();\n    console.log(response.body);\n    assert(response.status).to.equal(200);",
+              "err": {
+                "message": "AssertionError: expected 405 to equal 200",
+                "estack": "AssertionError: expected 405 to equal 200\n    at Context.<anonymous> (api\\test\\menu-object-test\\delete-object-test.js:20:36)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- 405\n+ 200\n"
+              },
+              "uuid": "4b39c72a-9021-4710-bd7c-4de5ece81f4a",
+              "parentUUID": "a4c70556-a66f-4e82-9663-38b4640979a1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "@get As a User, I should get error 404 when Invalid Route - Testing With False endpoint",
+              "fullTitle": "Delete Object @get As a User, I should get error 404 when Invalid Route - Testing With False endpoint",
+              "timedOut": false,
+              "duration": 182,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const response = await page.deleteNotFound();\n    console.log(response.body);\n    assert(response.status).to.equal(404);",
+              "err": {
+                "message": "AssertionError: expected 405 to equal 404",
+                "estack": "AssertionError: expected 405 to equal 404\n    at Context.<anonymous> (api\\test\\menu-object-test\\delete-object-test.js:26:36)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- 405\n+ 404\n"
+              },
+              "uuid": "e53fdf17-ba2b-4057-98ff-69971ddca447",
+              "parentUUID": "a4c70556-a66f-4e82-9663-38b4640979a1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "@get As a User, I should get error 408 when the request times out - Testing Request Timeout",
+              "fullTitle": "Delete Object @get As a User, I should get error 408 when the request times out - Testing Request Timeout",
+              "timedOut": false,
+              "duration": 210,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const response = await page.deleteRequestTimeout({\n    timeout: 100 // Simulate a request timeout\n});\nconsole.log(response.body);\nassert(response.status).to.equal(408);",
+              "err": {
+                "message": "AssertionError: expected 405 to equal 408",
+                "estack": "AssertionError: expected 405 to equal 408\n    at Context.<anonymous> (api\\test\\menu-object-test\\delete-object-test.js:34:36)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- 405\n+ 408\n"
+              },
+              "uuid": "c88c38b3-bac2-4fa6-b485-901d5ba85349",
+              "parentUUID": "a4c70556-a66f-4e82-9663-38b4640979a1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "4b39c72a-9021-4710-bd7c-4de5ece81f4a",
+            "e53fdf17-ba2b-4057-98ff-69971ddca447",
+            "c88c38b3-bac2-4fa6-b485-901d5ba85349"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 588,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 180000
+        },
+        {
+          "uuid": "806d4cb0-3367-4a73-b87b-faba1913a994",
+          "title": "List All Of Object",
+          "fullFile": "D:\\PARI\\testing-automation-api-object\\api\\test\\menu-object-test\\get-list-object-test.js",
+          "file": "\\api\\test\\menu-object-test\\get-list-object-test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "@get As a User, I want to be able to get List Of All Object - Testing With True endpoint",
+              "fullTitle": "List All Of Object @get As a User, I want to be able to get List Of All Object - Testing With True endpoint",
+              "timedOut": false,
+              "duration": 209,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const response = await page.getListAllObject();\n    console.log(response.body);\n    assert(response.status).to.equal(200);",
+              "err": {
+                "message": "AssertionError: expected 405 to equal 200",
+                "estack": "AssertionError: expected 405 to equal 200\n    at Context.<anonymous> (api\\test\\menu-object-test\\get-list-object-test.js:20:36)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- 405\n+ 200\n"
+              },
+              "uuid": "597f82ea-81f8-4d1e-9a57-3d0be7be020c",
+              "parentUUID": "806d4cb0-3367-4a73-b87b-faba1913a994",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "@get As a User, I should get error 404 when Invalid Route - Testing With True endpoint",
+              "fullTitle": "List All Of Object @get As a User, I should get error 404 when Invalid Route - Testing With True endpoint",
+              "timedOut": false,
+              "duration": 191,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await page.getnotFound();\n    console.log(response.body);\n    assert(response.status).to.equal(404);",
+              "err": {},
+              "uuid": "df93f58a-a5e8-40d2-938f-215c1f7debb1",
+              "parentUUID": "806d4cb0-3367-4a73-b87b-faba1913a994",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "@get As a User, I should get error 408 when the request times out - Testing Request Timeout",
+              "fullTitle": "List All Of Object @get As a User, I should get error 408 when the request times out - Testing Request Timeout",
+              "timedOut": false,
+              "duration": 201,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const response = await page.getListAllObject({\n    timeout: 100 // Simulate a request timeout\n});\nconsole.log(response.body);\nassert(response.status).to.equal(408);",
+              "err": {
+                "message": "AssertionError: expected 405 to equal 408",
+                "estack": "AssertionError: expected 405 to equal 408\n    at Context.<anonymous> (api\\test\\menu-object-test\\get-list-object-test.js:34:36)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- 405\n+ 408\n"
+              },
+              "uuid": "b7fc4263-eeaa-42f1-8dc2-963eecfb62c8",
+              "parentUUID": "806d4cb0-3367-4a73-b87b-faba1913a994",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "df93f58a-a5e8-40d2-938f-215c1f7debb1"
+          ],
+          "failures": [
+            "597f82ea-81f8-4d1e-9a57-3d0be7be020c",
+            "b7fc4263-eeaa-42f1-8dc2-963eecfb62c8"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 601,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 180000
+        },
+        {
+          "uuid": "706ed7f7-e524-4995-9826-850d081785fa",
+          "title": "Partially Update Object",
+          "fullFile": "D:\\PARI\\testing-automation-api-object\\api\\test\\menu-object-test\\partially-update-object-test.js",
+          "file": "\\api\\test\\menu-object-test\\partially-update-object-test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "@patch As a User, I want to be able to Update  Object - Testing with Update Object",
+              "fullTitle": "Partially Update Object @patch As a User, I want to be able to Update  Object - Testing with Update Object",
+              "timedOut": false,
+              "duration": 154,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const validDataCases = [\n    {\n        \"name\": \"Apple MacBook Pro 16 (Updated Name)\"\n     }\n];\nfor (const data of validDataCases){\nconst response = await page.patchUpdateObject(data);\nconsole.log(`Testing with data:`, data);\nconsole.log(response.body);\nassert(response.status).to.equal(200);\n}",
+              "err": {
+                "message": "AssertionError: expected 405 to equal 200",
+                "estack": "AssertionError: expected 405 to equal 200\n    at Context.<anonymous> (api\\test\\menu-object-test\\partially-update-object-test.js:27:32)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- 405\n+ 200\n"
+              },
+              "uuid": "c39893a5-e543-4305-8e5c-5b59ed2a05b4",
+              "parentUUID": "706ed7f7-e524-4995-9826-850d081785fa",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "@get As a User, I should get error 404 when Invalid Route - Testing With Invalid Route",
+              "fullTitle": "Partially Update Object @get As a User, I should get error 404 when Invalid Route - Testing With Invalid Route",
+              "timedOut": false,
+              "duration": 217,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const response = await page.patchnotFound();\n    console.log(response.body);\n    assert(response.status).to.equal(404);",
+              "err": {
+                "message": "AssertionError: expected 400 to equal 404",
+                "estack": "AssertionError: expected 400 to equal 404\n    at Context.<anonymous> (api\\test\\menu-object-test\\partially-update-object-test.js:34:36)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- 400\n+ 404\n"
+              },
+              "uuid": "0877e5b3-17e7-4e0e-86bc-bfeb3039bc47",
+              "parentUUID": "706ed7f7-e524-4995-9826-850d081785fa",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "@get As a User, I should get error 408 when the request times out - Testing Request Timeout",
+              "fullTitle": "Partially Update Object @get As a User, I should get error 408 when the request times out - Testing Request Timeout",
+              "timedOut": false,
+              "duration": 148,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const response = await page.patchUpdateRequestTimeout({\n    timeout: 100 // Simulate a request timeout\n});\nconsole.log(response.body);\nassert(response.status).to.equal(408);",
+              "err": {
+                "message": "AssertionError: expected 405 to equal 408",
+                "estack": "AssertionError: expected 405 to equal 408\n    at Context.<anonymous> (api\\test\\menu-object-test\\partially-update-object-test.js:42:36)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- 405\n+ 408\n"
+              },
+              "uuid": "5e4dc335-9fd5-46b7-87a0-e9ffe1aeeea9",
+              "parentUUID": "706ed7f7-e524-4995-9826-850d081785fa",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "c39893a5-e543-4305-8e5c-5b59ed2a05b4",
+            "0877e5b3-17e7-4e0e-86bc-bfeb3039bc47",
+            "5e4dc335-9fd5-46b7-87a0-e9ffe1aeeea9"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 519,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 180000
+        },
+        {
+          "uuid": "5cb81eed-36a8-4b2c-9226-7234b71d8e98",
+          "title": "Search By ID",
+          "fullFile": "D:\\PARI\\testing-automation-api-object\\api\\test\\menu-object-test\\search-by-id-test.js",
+          "file": "\\api\\test\\menu-object-test\\search-by-id-test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "@get As a User, I want to be able to get List Of All Object - Testing with multiple data IDs",
+              "fullTitle": "Search By ID @get As a User, I want to be able to get List Of All Object - Testing with multiple data IDs",
+              "timedOut": false,
+              "duration": 194,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const ids = ['3', '5', '10']; \nfor (const id of ids) {\n    const response = await page.getObjectById(id);\n    assert(response.status).to.equal(200);\n    }",
+              "err": {
+                "message": "AssertionError: expected 405 to equal 200",
+                "estack": "AssertionError: expected 405 to equal 200\n    at Context.<anonymous> (api\\test\\menu-object-test\\search-by-id-test.js:22:40)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- 405\n+ 200\n"
+              },
+              "uuid": "a4f18875-fd1a-459f-849f-8bb8eaac3fa2",
+              "parentUUID": "5cb81eed-36a8-4b2c-9226-7234b71d8e98",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "@get As a User, I want to be able to get List Of All Object - Testing With ID = 3",
+              "fullTitle": "Search By ID @get As a User, I want to be able to get List Of All Object - Testing With ID = 3",
+              "timedOut": false,
+              "duration": 194,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const id = 3;   \nconst response = await page.getObjectById(id);\nconsole.log(response.body);\nassert(response.status).to.equal(200);",
+              "err": {
+                "message": "AssertionError: expected 405 to equal 200",
+                "estack": "AssertionError: expected 405 to equal 200\n    at Context.<anonymous> (api\\test\\menu-object-test\\search-by-id-test.js:30:36)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- 405\n+ 200\n"
+              },
+              "uuid": "17d6a24c-7a0a-4a83-a047-35978f36163c",
+              "parentUUID": "5cb81eed-36a8-4b2c-9226-7234b71d8e98",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "@get As a User, I want to be able to get List Of All Object - Testing With ID = 5",
+              "fullTitle": "Search By ID @get As a User, I want to be able to get List Of All Object - Testing With ID = 5",
+              "timedOut": false,
+              "duration": 144,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const id = '5';   \nconst response = await page.getObjectById(id);\nconsole.log(response.body);\nassert(response.status).to.equal(200);",
+              "err": {
+                "message": "AssertionError: expected 405 to equal 200",
+                "estack": "AssertionError: expected 405 to equal 200\n    at Context.<anonymous> (api\\test\\menu-object-test\\search-by-id-test.js:37:36)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- 405\n+ 200\n"
+              },
+              "uuid": "6db5c52d-4a71-44c2-a849-5917752f2a39",
+              "parentUUID": "5cb81eed-36a8-4b2c-9226-7234b71d8e98",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "@get As a User, I want to be able to get List Of All Object - Testing With ID = 10",
+              "fullTitle": "Search By ID @get As a User, I want to be able to get List Of All Object - Testing With ID = 10",
+              "timedOut": false,
+              "duration": 227,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const id = '10' ;    \nconst response = await page.getObjectById(id);\nconsole.log(response.body);\nassert(response.status).to.equal(200);",
+              "err": {
+                "message": "AssertionError: expected 405 to equal 200",
+                "estack": "AssertionError: expected 405 to equal 200\n    at Context.<anonymous> (api\\test\\menu-object-test\\search-by-id-test.js:44:36)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- 405\n+ 200\n"
+              },
+              "uuid": "b27bc5b5-5c4c-490d-8c89-301876893145",
+              "parentUUID": "5cb81eed-36a8-4b2c-9226-7234b71d8e98",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "@get As a User, I should get error 400 when Invalid Data Parameter - Testing With ID using boolean",
+              "fullTitle": "Search By ID @get As a User, I should get error 400 when Invalid Data Parameter - Testing With ID using boolean",
+              "timedOut": false,
+              "duration": 152,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const id = true; // harusnya kena 400 tapi ini masih passing ke 200 \nconst response = await page.getObjectById(id);\nconsole.log(response.body);\nassert(response.status).to.equal(400);",
+              "err": {
+                "message": "AssertionError: expected 405 to equal 400",
+                "estack": "AssertionError: expected 405 to equal 400\n    at Context.<anonymous> (api\\test\\menu-object-test\\search-by-id-test.js:51:36)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- 405\n+ 400\n"
+              },
+              "uuid": "ff6f9085-d18e-48a4-b2d2-8079d08907d4",
+              "parentUUID": "5cb81eed-36a8-4b2c-9226-7234b71d8e98",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "@get As a User, I should get error 404 when Invalid Route - Testing with Invalid Route",
+              "fullTitle": "Search By ID @get As a User, I should get error 404 when Invalid Route - Testing with Invalid Route",
+              "timedOut": false,
+              "duration": 160,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const response = await page.getnotFound();\n    console.log(response.body);\n    assert(response.status).to.equal(404);",
+              "err": {
+                "message": "AssertionError: expected 405 to equal 404",
+                "estack": "AssertionError: expected 405 to equal 404\n    at Context.<anonymous> (api\\test\\menu-object-test\\search-by-id-test.js:57:36)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- 405\n+ 404\n"
+              },
+              "uuid": "3ed43835-0921-41ee-a0b2-1a5c99506db8",
+              "parentUUID": "5cb81eed-36a8-4b2c-9226-7234b71d8e98",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "@get As a User, I should get error 408 when the request times out - Testing Request Timeout",
+              "fullTitle": "Search By ID @get As a User, I should get error 408 when the request times out - Testing Request Timeout",
+              "timedOut": false,
+              "duration": 1,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const response = await page.getRequestTimeout({\n    timeout: 100 // Simulate a request timeout\n});\nconsole.log(response.body);\nassert(response.status).to.equal(408);",
+              "err": {
+                "message": "TypeError: page.getRequestTimeout is not a function",
+                "estack": "TypeError: page.getRequestTimeout is not a function\n    at Context.<anonymous> (api\\test\\menu-object-test\\search-by-id-test.js:61:37)\n    at process.processImmediate (node:internal/timers:478:21)",
+                "diff": null
+              },
+              "uuid": "32214534-edd6-4723-bb3d-821a43c83a71",
+              "parentUUID": "5cb81eed-36a8-4b2c-9226-7234b71d8e98",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "a4f18875-fd1a-459f-849f-8bb8eaac3fa2",
+            "17d6a24c-7a0a-4a83-a047-35978f36163c",
+            "6db5c52d-4a71-44c2-a849-5917752f2a39",
+            "b27bc5b5-5c4c-490d-8c89-301876893145",
+            "ff6f9085-d18e-48a4-b2d2-8079d08907d4",
+            "3ed43835-0921-41ee-a0b2-1a5c99506db8",
+            "32214534-edd6-4723-bb3d-821a43c83a71"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 1072,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 180000
+        },
+        {
+          "uuid": "823ededf-a093-4f51-ba7a-301f1be72d23",
+          "title": "Single Of Object",
+          "fullFile": "D:\\PARI\\testing-automation-api-object\\api\\test\\menu-object-test\\single-object-test.js",
+          "file": "\\api\\test\\menu-object-test\\single-object-test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "@get As a User, I want to be able to get List Of All Object - Testing With True endpoint",
+              "fullTitle": "Single Of Object @get As a User, I want to be able to get List Of All Object - Testing With True endpoint",
+              "timedOut": false,
+              "duration": 157,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const response = await page.getSingleObject();\n    console.log(response.body);\n    assert(response.status).to.equal(200);",
+              "err": {
+                "message": "AssertionError: expected 405 to equal 200",
+                "estack": "AssertionError: expected 405 to equal 200\n    at Context.<anonymous> (api\\test\\menu-object-test\\single-object-test.js:20:36)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- 405\n+ 200\n"
+              },
+              "uuid": "727002a3-3ef2-42fc-8741-d925f72ceb1b",
+              "parentUUID": "823ededf-a093-4f51-ba7a-301f1be72d23",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "@get As a User, I should get error 404 when Invalid Route - Testing With True endpoint",
+              "fullTitle": "Single Of Object @get As a User, I should get error 404 when Invalid Route - Testing With True endpoint",
+              "timedOut": false,
+              "duration": 151,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const response = await page.getnotFound();\n    console.log(response.body);\n    assert(response.status).to.equal(404);",
+              "err": {
+                "message": "AssertionError: expected 405 to equal 404",
+                "estack": "AssertionError: expected 405 to equal 404\n    at Context.<anonymous> (api\\test\\menu-object-test\\single-object-test.js:26:36)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- 405\n+ 404\n"
+              },
+              "uuid": "42aff8c7-9733-4e7a-acf8-cbcac3c2c6d5",
+              "parentUUID": "823ededf-a093-4f51-ba7a-301f1be72d23",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "@get As a User, I should get error 408 when the request times out - Testing Request Timeout",
+              "fullTitle": "Single Of Object @get As a User, I should get error 408 when the request times out - Testing Request Timeout",
+              "timedOut": false,
+              "duration": 194,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const response = await page.getSingleObject({\n    timeout: 100 // Simulate a request timeout\n});\nconsole.log(response.body);\nassert(response.status).to.equal(408);",
+              "err": {
+                "message": "AssertionError: expected 405 to equal 408",
+                "estack": "AssertionError: expected 405 to equal 408\n    at Context.<anonymous> (api\\test\\menu-object-test\\single-object-test.js:34:36)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- 405\n+ 408\n"
+              },
+              "uuid": "43765a18-f0e2-4863-9543-d15014850c4b",
+              "parentUUID": "823ededf-a093-4f51-ba7a-301f1be72d23",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "727002a3-3ef2-42fc-8741-d925f72ceb1b",
+            "42aff8c7-9733-4e7a-acf8-cbcac3c2c6d5",
+            "43765a18-f0e2-4863-9543-d15014850c4b"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 502,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 180000
+        },
+        {
+          "uuid": "e11d19f4-0efe-4643-b431-310c5fb06ea1",
+          "title": "Update Object",
+          "fullFile": "D:\\PARI\\testing-automation-api-object\\api\\test\\menu-object-test\\update-object-test.js",
+          "file": "\\api\\test\\menu-object-test\\update-object-test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "@put As a User, I want to be able to Update  Object - Testing with Update Object",
+              "fullTitle": "Update Object @put As a User, I want to be able to Update  Object - Testing with Update Object",
+              "timedOut": false,
+              "duration": 1,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const validDataCases = [\n    {\n        \"name\": \"Apple MacBook Pro 16\",\n        \"data\": {\n           \"year\": 2019,\n           \"price\": 2049.99,\n           \"CPU model\": \"Intel Core i9\",\n           \"Hard disk size\": \"1 TB\",\n           \"color\": \"silver\"\n        }\n     }\n];\nfor (const data of validDataCases){\nconst response = await page.PutObject(data);\nconsole.log(`Testing with data:`, data);\nconsole.log(response.body);\nassert(response.status).to.equal(200);\n}",
+              "err": {
+                "message": "TypeError: page.PutObject is not a function",
+                "estack": "TypeError: page.PutObject is not a function\n    at Context.<anonymous> (api\\test\\menu-object-test\\update-object-test.js:31:33)\n    at process.processImmediate (node:internal/timers:478:21)",
+                "diff": null
+              },
+              "uuid": "bb277b5d-54f5-47db-a4b4-6219fd833fea",
+              "parentUUID": "e11d19f4-0efe-4643-b431-310c5fb06ea1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "@get As a User, I should get error 404 when Invalid Route - Testing With Invalid Route",
+              "fullTitle": "Update Object @get As a User, I should get error 404 when Invalid Route - Testing With Invalid Route",
+              "timedOut": false,
+              "duration": 172,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const response = await page.getnotFound();\n    console.log(response.body);\n    assert(response.status).to.equal(404);",
+              "err": {
+                "message": "AssertionError: expected 400 to equal 404",
+                "estack": "AssertionError: expected 400 to equal 404\n    at Context.<anonymous> (api\\test\\menu-object-test\\update-object-test.js:41:36)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- 400\n+ 404\n"
+              },
+              "uuid": "8dc40bf4-50e4-4ebf-90a9-063dab730f7b",
+              "parentUUID": "e11d19f4-0efe-4643-b431-310c5fb06ea1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "@get As a User, I should get error 408 when the request times out - Testing Request Timeout",
+              "fullTitle": "Update Object @get As a User, I should get error 408 when the request times out - Testing Request Timeout",
+              "timedOut": false,
+              "duration": 152,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const response = await page.putUpdateRequestTimeout({\n    timeout: 100 // Simulate a request timeout\n});\nconsole.log(response.body);\nassert(response.status).to.equal(408);",
+              "err": {
+                "message": "AssertionError: expected 405 to equal 408",
+                "estack": "AssertionError: expected 405 to equal 408\n    at Context.<anonymous> (api\\test\\menu-object-test\\update-object-test.js:49:36)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- 405\n+ 408\n"
+              },
+              "uuid": "ef81b464-03bb-4a73-a282-ff6df6823cc9",
+              "parentUUID": "e11d19f4-0efe-4643-b431-310c5fb06ea1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "bb277b5d-54f5-47db-a4b4-6219fd833fea",
+            "8dc40bf4-50e4-4ebf-90a9-063dab730f7b",
+            "ef81b464-03bb-4a73-a282-ff6df6823cc9"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 325,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 180000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 180000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.7.3"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "report-[datetime]",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "reports/mochawesome/",
+        "reportFilename": "report-[datetime]",
+        "overwrite": "false"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

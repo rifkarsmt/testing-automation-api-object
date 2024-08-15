@@ -1,0 +1,313 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 10,
+    "passes": 6,
+    "pending": 0,
+    "failures": 4,
+    "start": "2024-08-15T13:15:48.303Z",
+    "end": "2024-08-15T13:15:51.076Z",
+    "duration": 2773,
+    "testsRegistered": 10,
+    "passPercent": 60,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2c9776cf-6a35-4b8e-97d1-94e2a5ceeedb",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a85b35ab-ab69-4467-98d1-7953c153576e",
+          "title": "List All Of Object",
+          "fullFile": "D:\\PARI\\testing-automation-api-object\\api\\test\\menu-object-test\\get-list-object-test.js",
+          "file": "\\api\\test\\menu-object-test\\get-list-object-test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "@get As a User, I want to be able to get List Of All Object - Testing With True endpoint",
+              "fullTitle": "List All Of Object @get As a User, I want to be able to get List Of All Object - Testing With True endpoint",
+              "timedOut": false,
+              "duration": 342,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await page.getListAllObject();\n    console.log(response.body);\n    assert(response.status).to.equal(200);",
+              "err": {},
+              "uuid": "f0f1b757-32e2-48bc-ace8-cfcbfaa782b2",
+              "parentUUID": "a85b35ab-ab69-4467-98d1-7953c153576e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "@get As a User, I should get error 404 when Invalid Route - Testing With True endpoint",
+              "fullTitle": "List All Of Object @get As a User, I should get error 404 when Invalid Route - Testing With True endpoint",
+              "timedOut": false,
+              "duration": 213,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await page.getnotFound();\n    console.log(response.body);\n    assert(response.status).to.equal(404);",
+              "err": {},
+              "uuid": "9bddadf8-bf58-4cde-a6d2-8f129d30e7e4",
+              "parentUUID": "a85b35ab-ab69-4467-98d1-7953c153576e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "@get As a User, I should get error 408 when the request times out - Testing Request Timeout",
+              "fullTitle": "List All Of Object @get As a User, I should get error 408 when the request times out - Testing Request Timeout",
+              "timedOut": false,
+              "duration": 197,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const response = await page.getListAllObject({\n    timeout: 100 // Simulate a request timeout\n});\nconsole.log(response.body);\nassert(response.status).to.equal(408);",
+              "err": {
+                "message": "AssertionError: expected 200 to equal 408",
+                "estack": "AssertionError: expected 200 to equal 408\n    at Context.<anonymous> (api\\test\\menu-object-test\\get-list-object-test.js:34:36)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- 200\n+ 408\n"
+              },
+              "uuid": "8d3ba6a7-c282-4a63-9cda-56463f161fee",
+              "parentUUID": "a85b35ab-ab69-4467-98d1-7953c153576e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f0f1b757-32e2-48bc-ace8-cfcbfaa782b2",
+            "9bddadf8-bf58-4cde-a6d2-8f129d30e7e4"
+          ],
+          "failures": [
+            "8d3ba6a7-c282-4a63-9cda-56463f161fee"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 752,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 180000
+        },
+        {
+          "uuid": "e6f432b6-6101-413c-9067-0033a6163e0e",
+          "title": "Search By ID",
+          "fullFile": "D:\\PARI\\testing-automation-api-object\\api\\test\\menu-object-test\\search-by-id-test.js",
+          "file": "\\api\\test\\menu-object-test\\search-by-id-test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "@get As a User, I want to be able to get List Of All Object - Testing with multiple data IDs",
+              "fullTitle": "Search By ID @get As a User, I want to be able to get List Of All Object - Testing with multiple data IDs",
+              "timedOut": false,
+              "duration": 887,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const ids = ['3', '5', '10']; \nfor (const id of ids) {\n    const response = await page.getObjectById(id);\n    assert(response.status).to.equal(200);\n    }",
+              "err": {},
+              "uuid": "7a073cce-aa38-4513-bfd6-894894a82980",
+              "parentUUID": "e6f432b6-6101-413c-9067-0033a6163e0e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "@get As a User, I want to be able to get List Of All Object - Testing With ID = 3",
+              "fullTitle": "Search By ID @get As a User, I want to be able to get List Of All Object - Testing With ID = 3",
+              "timedOut": false,
+              "duration": 159,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const id = 3;   \nconst response = await page.getObjectById(id);\nconsole.log(response.body);\nassert(response.status).to.equal(200);",
+              "err": {},
+              "uuid": "34586e1a-62fc-48f9-acfb-1c07e39ccdce",
+              "parentUUID": "e6f432b6-6101-413c-9067-0033a6163e0e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "@get As a User, I want to be able to get List Of All Object - Testing With ID = 5",
+              "fullTitle": "Search By ID @get As a User, I want to be able to get List Of All Object - Testing With ID = 5",
+              "timedOut": false,
+              "duration": 368,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const id = '5';   \nconst response = await page.getObjectById(id);\nconsole.log(response.body);\nassert(response.status).to.equal(200);",
+              "err": {},
+              "uuid": "a218cbf1-4df1-4276-8265-42e80ed03c9a",
+              "parentUUID": "e6f432b6-6101-413c-9067-0033a6163e0e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "@get As a User, I want to be able to get List Of All Object - Testing With ID = 10",
+              "fullTitle": "Search By ID @get As a User, I want to be able to get List Of All Object - Testing With ID = 10",
+              "timedOut": false,
+              "duration": 155,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const id = '10' ;    \nconst response = await page.getObjectById(id);\nconsole.log(response.body);\nassert(response.status).to.equal(200);",
+              "err": {},
+              "uuid": "425e15f9-240e-4a11-bf9b-942ce885979a",
+              "parentUUID": "e6f432b6-6101-413c-9067-0033a6163e0e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "@get As a User, I should get error 400 when Invalid Data Parameter - Testing With ID using boolean",
+              "fullTitle": "Search By ID @get As a User, I should get error 400 when Invalid Data Parameter - Testing With ID using boolean",
+              "timedOut": false,
+              "duration": 227,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const id = true; // harusnya kena 400 tapi ini masih passing ke 200 \nconst response = await page.getObjectById(id);\nconsole.log(response.body);\nassert(response.status).to.equal(400);",
+              "err": {
+                "message": "AssertionError: expected 200 to equal 400",
+                "estack": "AssertionError: expected 200 to equal 400\n    at Context.<anonymous> (api\\test\\menu-object-test\\search-by-id-test.js:51:36)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- 200\n+ 400\n"
+              },
+              "uuid": "e8413b7d-6aa7-4ba3-9b16-e33414e43b4e",
+              "parentUUID": "e6f432b6-6101-413c-9067-0033a6163e0e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "@get As a User, I should get error 404 when Invalid Route - Testing with Invalid Route",
+              "fullTitle": "Search By ID @get As a User, I should get error 404 when Invalid Route - Testing with Invalid Route",
+              "timedOut": false,
+              "duration": 189,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const response = await page.getnotFound();\n    console.log(response.body);\n    assert(response.status).to.equal(404);",
+              "err": {
+                "message": "AssertionError: expected 200 to equal 404",
+                "estack": "AssertionError: expected 200 to equal 404\n    at Context.<anonymous> (api\\test\\menu-object-test\\search-by-id-test.js:57:36)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- 200\n+ 404\n"
+              },
+              "uuid": "e83bd6b9-efaf-437d-94be-095797cc9b6a",
+              "parentUUID": "e6f432b6-6101-413c-9067-0033a6163e0e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "@get As a User, I should get error 408 when the request times out - Testing Request Timeout",
+              "fullTitle": "Search By ID @get As a User, I should get error 408 when the request times out - Testing Request Timeout",
+              "timedOut": false,
+              "duration": 1,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const response = await page.getRequestTimeout({\n    timeout: 100 // Simulate a request timeout\n});\nconsole.log(response.body);\nassert(response.status).to.equal(408);",
+              "err": {
+                "message": "TypeError: page.getRequestTimeout is not a function",
+                "estack": "TypeError: page.getRequestTimeout is not a function\n    at Context.<anonymous> (api\\test\\menu-object-test\\search-by-id-test.js:61:37)\n    at process.processImmediate (node:internal/timers:478:21)",
+                "diff": null
+              },
+              "uuid": "f297e580-f02c-4638-9fa7-68f3e7cb6d4b",
+              "parentUUID": "e6f432b6-6101-413c-9067-0033a6163e0e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "7a073cce-aa38-4513-bfd6-894894a82980",
+            "34586e1a-62fc-48f9-acfb-1c07e39ccdce",
+            "a218cbf1-4df1-4276-8265-42e80ed03c9a",
+            "425e15f9-240e-4a11-bf9b-942ce885979a"
+          ],
+          "failures": [
+            "e8413b7d-6aa7-4ba3-9b16-e33414e43b4e",
+            "e83bd6b9-efaf-437d-94be-095797cc9b6a",
+            "f297e580-f02c-4638-9fa7-68f3e7cb6d4b"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 1986,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 180000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 180000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.7.3"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "report-[datetime]",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "reports/mochawesome/",
+        "reportFilename": "report-[datetime]",
+        "overwrite": "false"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
