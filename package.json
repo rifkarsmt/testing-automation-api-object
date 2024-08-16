@@ -1,0 +1,23 @@
+{
+    "name": "automation-api",
+    "version": "1.0.0",
+    "description": "API Testing Framework with Mocha and Chai",
+    "main": "index.js",
+   "scripts": {
+        "test-open": "npm run test-api && npm run reports",
+        "test-api": "node node_modules/mocha/bin/mocha ./api/test --recursive --reporter mochawesome --reporter-options reportDir=reports/mochawesome/,reportFilename=report-[datetime],overwrite=false --timeout 180000",
+        "reports": "node -e \"const fs=require('fs'),path=require('path');const reportsDir='./reports/mochawesome/';const files=fs.readdirSync(reportsDir).filter(f=>f.endsWith('.html'));const latestFile=files.map(f=>({name:f,time:fs.statSync(path.join(reportsDir,f)).mtime})).sort((a,b)=>b.time-a.time)[0].name;require('child_process').exec('start ' + path.join(reportsDir,latestFile));\""
+    },
+    "author": "Rifka Rasmita",
+    "dependencies": {
+        "chai": "^4.4.1",
+        "dotenv": "^7.0.0",
+        "mochawesome-merge": "^4.3.0",
+        "supertest": "^3.4.2"
+    },
+    "devDependencies": {
+        "mocha": "^10.7.0",
+        "mochawesome": "^7.1.3",
+        "mochawesome-report-generator": "^6.2.0"
+    }
+}

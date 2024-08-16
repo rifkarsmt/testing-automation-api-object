@@ -1,0 +1,325 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 10,
+    "passes": 3,
+    "pending": 0,
+    "failures": 7,
+    "start": "2024-08-15T12:58:36.373Z",
+    "end": "2024-08-15T12:58:37.494Z",
+    "duration": 1121,
+    "testsRegistered": 10,
+    "passPercent": 30,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ea4f2e2e-8e29-4eb7-8f3e-0cc73dfebb79",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0459e7a3-c839-4f86-b082-f1a7900ee7ff",
+          "title": "List All Of Object",
+          "fullFile": "D:\\PARI\\testing-automation-api-object\\api\\test\\menu-object-test\\get-list-object-test.js",
+          "file": "\\api\\test\\menu-object-test\\get-list-object-test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "@get As a User, I want to be able to get List Of All Object - Testing With True endpoint",
+              "fullTitle": "List All Of Object @get As a User, I want to be able to get List Of All Object - Testing With True endpoint",
+              "timedOut": false,
+              "duration": 435,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await page.getListAllObject();\n    console.log(response.body);\n    assert(response.status).to.equal(200);",
+              "err": {},
+              "uuid": "d1911ea6-c12c-4f6f-a12c-b5591275a3ea",
+              "parentUUID": "0459e7a3-c839-4f86-b082-f1a7900ee7ff",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "@get As a User, I should get error 404 when Invalid Route - Testing With True endpoint",
+              "fullTitle": "List All Of Object @get As a User, I should get error 404 when Invalid Route - Testing With True endpoint",
+              "timedOut": false,
+              "duration": 186,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await page.getnotFound();\n    console.log(response.body);\n    assert(response.status).to.equal(404);",
+              "err": {},
+              "uuid": "e7eb03c7-4581-4a2d-a623-f716e4526490",
+              "parentUUID": "0459e7a3-c839-4f86-b082-f1a7900ee7ff",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "@get As a User, I should get error 408 when the request times out - Testing Request Timeout",
+              "fullTitle": "List All Of Object @get As a User, I should get error 408 when the request times out - Testing Request Timeout",
+              "timedOut": false,
+              "duration": 227,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const response = await page.getListAllObject({\n    timeout: 100 // Simulate a request timeout\n});\nconsole.log(response.body);\nassert(response.status).to.equal(408);",
+              "err": {
+                "message": "AssertionError: expected 200 to equal 408",
+                "estack": "AssertionError: expected 200 to equal 408\n    at Context.<anonymous> (api\\test\\menu-object-test\\get-list-object-test.js:34:36)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- 200\n+ 408\n"
+              },
+              "uuid": "899d74b1-4de9-4a15-b5c3-d10a4d066ff3",
+              "parentUUID": "0459e7a3-c839-4f86-b082-f1a7900ee7ff",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d1911ea6-c12c-4f6f-a12c-b5591275a3ea",
+            "e7eb03c7-4581-4a2d-a623-f716e4526490"
+          ],
+          "failures": [
+            "899d74b1-4de9-4a15-b5c3-d10a4d066ff3"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 848,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 180000
+        },
+        {
+          "uuid": "b6f768a4-5085-4cbb-b7e1-df85f6ef4b52",
+          "title": "List All Of Object",
+          "fullFile": "D:\\PARI\\testing-automation-api-object\\api\\test\\menu-object-test\\search-by-id-test.js",
+          "file": "\\api\\test\\menu-object-test\\search-by-id-test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "@get As a User, I want to be able to get List Of All Object - Testing with multiple data IDs",
+              "fullTitle": "List All Of Object @get As a User, I want to be able to get List Of All Object - Testing with multiple data IDs",
+              "timedOut": false,
+              "duration": 2,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const ids = ['3', '5', '10']; \nfor (const id of ids) {\n    const response = await page.getObjectById(id);\n    assert(response.status).to.equal(200);\n    }",
+              "err": {
+                "message": "TypeError: The \"urlObject\" argument must be one of type object or string. Received undefined",
+                "estack": "TypeError [ERR_INVALID_ARG_TYPE]: The \"urlObject\" argument must be one of type object or string. Received undefined\n    at urlFormat (node:url:580:11)\n    at Test.Request (node_modules\\superagent\\lib\\node\\index.js:137:37)\n    at new Test (node_modules\\supertest\\lib\\test.js:29:11)\n    at obj.<computed> [as get] (node_modules\\supertest\\index.js:25:14)\n    at Object.getObjectById (api\\page\\menu-object-page\\get-list-object-page.js:23:27)\n    at Context.<anonymous> (api\\test\\menu-object-test\\search-by-id-test.js:21:41)\n    at process.processImmediate (node:internal/timers:478:21)",
+                "diff": null
+              },
+              "uuid": "1e992b4e-d6d8-4e37-8fb0-6e2a63f72acb",
+              "parentUUID": "b6f768a4-5085-4cbb-b7e1-df85f6ef4b52",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "@get As a User, I want to be able to get List Of All Object - Testing With ID = 3",
+              "fullTitle": "List All Of Object @get As a User, I want to be able to get List Of All Object - Testing With ID = 3",
+              "timedOut": false,
+              "duration": 0,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const id = '3';   \nconst response = await page.getObjectById(id);\nconsole.log(response.body);\nassert(response.status).to.equal(200);",
+              "err": {
+                "message": "TypeError: The \"urlObject\" argument must be one of type object or string. Received undefined",
+                "estack": "TypeError [ERR_INVALID_ARG_TYPE]: The \"urlObject\" argument must be one of type object or string. Received undefined\n    at urlFormat (node:url:580:11)\n    at Test.Request (node_modules\\superagent\\lib\\node\\index.js:137:37)\n    at new Test (node_modules\\supertest\\lib\\test.js:29:11)\n    at obj.<computed> [as get] (node_modules\\supertest\\index.js:25:14)\n    at Object.getObjectById (api\\page\\menu-object-page\\get-list-object-page.js:23:27)\n    at Context.<anonymous> (api\\test\\menu-object-test\\search-by-id-test.js:28:37)\n    at process.processImmediate (node:internal/timers:478:21)",
+                "diff": null
+              },
+              "uuid": "d76fc515-c789-4d98-8c18-197b06e47a97",
+              "parentUUID": "b6f768a4-5085-4cbb-b7e1-df85f6ef4b52",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "@get As a User, I want to be able to get List Of All Object - Testing With ID = 5",
+              "fullTitle": "List All Of Object @get As a User, I want to be able to get List Of All Object - Testing With ID = 5",
+              "timedOut": false,
+              "duration": 0,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const id = '5';   \nconst response = await page.getObjectById(id);\nconsole.log(response.body);\nassert(response.status).to.equal(200);",
+              "err": {
+                "message": "TypeError: The \"urlObject\" argument must be one of type object or string. Received undefined",
+                "estack": "TypeError [ERR_INVALID_ARG_TYPE]: The \"urlObject\" argument must be one of type object or string. Received undefined\n    at urlFormat (node:url:580:11)\n    at Test.Request (node_modules\\superagent\\lib\\node\\index.js:137:37)\n    at new Test (node_modules\\supertest\\lib\\test.js:29:11)\n    at obj.<computed> [as get] (node_modules\\supertest\\index.js:25:14)\n    at Object.getObjectById (api\\page\\menu-object-page\\get-list-object-page.js:23:27)\n    at Context.<anonymous> (api\\test\\menu-object-test\\search-by-id-test.js:35:37)\n    at process.processImmediate (node:internal/timers:478:21)",
+                "diff": null
+              },
+              "uuid": "c31be71b-7de6-4276-a628-efb511399f87",
+              "parentUUID": "b6f768a4-5085-4cbb-b7e1-df85f6ef4b52",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "@get As a User, I want to be able to get List Of All Object - Testing With ID = 10",
+              "fullTitle": "List All Of Object @get As a User, I want to be able to get List Of All Object - Testing With ID = 10",
+              "timedOut": false,
+              "duration": 2,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const id = '10' ;    \nconst response = await page.getObjectById(id);\nconsole.log(response.body);\nassert(response.status).to.equal(200);",
+              "err": {
+                "message": "TypeError: The \"urlObject\" argument must be one of type object or string. Received undefined",
+                "estack": "TypeError [ERR_INVALID_ARG_TYPE]: The \"urlObject\" argument must be one of type object or string. Received undefined\n    at urlFormat (node:url:580:11)\n    at Test.Request (node_modules\\superagent\\lib\\node\\index.js:137:37)\n    at new Test (node_modules\\supertest\\lib\\test.js:29:11)\n    at obj.<computed> [as get] (node_modules\\supertest\\index.js:25:14)\n    at Object.getObjectById (api\\page\\menu-object-page\\get-list-object-page.js:23:27)\n    at Context.<anonymous> (api\\test\\menu-object-test\\search-by-id-test.js:42:37)\n    at process.processImmediate (node:internal/timers:478:21)",
+                "diff": null
+              },
+              "uuid": "0b1e31ef-a6e2-44dc-8163-143cbdaf5d83",
+              "parentUUID": "b6f768a4-5085-4cbb-b7e1-df85f6ef4b52",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "@get As a User, I should get error 400 when Invalid Data Parameter - Testing With ID using boolean",
+              "fullTitle": "List All Of Object @get As a User, I should get error 400 when Invalid Data Parameter - Testing With ID using boolean",
+              "timedOut": false,
+              "duration": 0,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const id = true; // harusnya kena 400 tapi ini masih passing ke 200 \nconst response = await page.getObjectById(id);\nconsole.log(response.body);\nassert(response.status).to.equal(400);",
+              "err": {
+                "message": "TypeError: The \"urlObject\" argument must be one of type object or string. Received undefined",
+                "estack": "TypeError [ERR_INVALID_ARG_TYPE]: The \"urlObject\" argument must be one of type object or string. Received undefined\n    at urlFormat (node:url:580:11)\n    at Test.Request (node_modules\\superagent\\lib\\node\\index.js:137:37)\n    at new Test (node_modules\\supertest\\lib\\test.js:29:11)\n    at obj.<computed> [as get] (node_modules\\supertest\\index.js:25:14)\n    at Object.getObjectById (api\\page\\menu-object-page\\get-list-object-page.js:23:27)\n    at Context.<anonymous> (api\\test\\menu-object-test\\search-by-id-test.js:49:37)\n    at process.processImmediate (node:internal/timers:478:21)",
+                "diff": null
+              },
+              "uuid": "9362d167-0c4c-495d-8dce-078b1bdf46b5",
+              "parentUUID": "b6f768a4-5085-4cbb-b7e1-df85f6ef4b52",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "@get As a User, I should get error 404 when Invalid Route - Testing with Invalid Route",
+              "fullTitle": "List All Of Object @get As a User, I should get error 404 when Invalid Route - Testing with Invalid Route",
+              "timedOut": false,
+              "duration": 210,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await page.getnotFound();\n    console.log(response.body);\n    assert(response.status).to.equal(404);",
+              "err": {},
+              "uuid": "f20c7c5e-2e40-4f80-a9c8-f9d3c6ba20a7",
+              "parentUUID": "b6f768a4-5085-4cbb-b7e1-df85f6ef4b52",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "@get As a User, I should get error 408 when the request times out - Testing Request Timeout",
+              "fullTitle": "List All Of Object @get As a User, I should get error 408 when the request times out - Testing Request Timeout",
+              "timedOut": false,
+              "duration": 1,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const response = await page.getRequestTimeout({\n    timeout: 100 // Simulate a request timeout\n});\nconsole.log(response.body);\nassert(response.status).to.equal(408);",
+              "err": {
+                "message": "TypeError: page.getRequestTimeout is not a function",
+                "estack": "TypeError: page.getRequestTimeout is not a function\n    at Context.<anonymous> (api\\test\\menu-object-test\\search-by-id-test.js:61:37)\n    at process.processImmediate (node:internal/timers:478:21)",
+                "diff": null
+              },
+              "uuid": "17ba440c-89a1-4c3d-9bc7-24943d29f584",
+              "parentUUID": "b6f768a4-5085-4cbb-b7e1-df85f6ef4b52",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f20c7c5e-2e40-4f80-a9c8-f9d3c6ba20a7"
+          ],
+          "failures": [
+            "1e992b4e-d6d8-4e37-8fb0-6e2a63f72acb",
+            "d76fc515-c789-4d98-8c18-197b06e47a97",
+            "c31be71b-7de6-4276-a628-efb511399f87",
+            "0b1e31ef-a6e2-44dc-8163-143cbdaf5d83",
+            "9362d167-0c4c-495d-8dce-078b1bdf46b5",
+            "17ba440c-89a1-4c3d-9bc7-24943d29f584"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 215,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 180000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 180000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.7.3"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "report-[datetime]",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "reports/mochawesome/",
+        "reportFilename": "report-[datetime]",
+        "overwrite": "false"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
